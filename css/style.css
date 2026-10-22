@@ -87,8 +87,9 @@ p {
 .site-aside {
     color: #c5c9d6;
     background-color: #10131d;
-    border-right: 1px solid #252938;
-    min-height: 100%;
+    border: 1px solid #252938;
+    border-radius: 8px;
+    align-self: flex-start;
 }
 
 .site-aside h2 {
@@ -100,7 +101,9 @@ p {
 .site-aside p {
     font-size: 0.9rem;
     overflow-wrap: anywhere;
+    margin-bottom: 0;
 }
+
 
 .hero-banner,
 .rules-section {

@@ -5,8 +5,7 @@ if (form) {
     const ign = document.getElementById("ign");
     const email = document.getElementById("email");
     const password = document.getElementById("password");
-    const confirmPassword =
-        document.getElementById("confirmPassword");
+    const confirmPassword = document.getElementById("confirmPassword");
     const discipline = document.getElementById("discipline");
     const experience = document.getElementById("experience");
     const formMessage = document.getElementById("formMessage");
@@ -53,9 +52,13 @@ if (form) {
         });
 
         // Check email format
-        if (email.value.trim() && !email.validity.valid) {
-            showError(email, "Please enter a valid email address.");
-            isValid = false;
+        if (email.value.trim()) {
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!emailPattern.test(email.value.trim())) {
+                showError(email, "Please enter a valid email address.");
+                isValid = false;
+            }
         }
 
         // Check password length

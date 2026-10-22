@@ -186,3 +186,26 @@ if (changeThemeBtn) {
         document.body.style.backgroundColor = colors[randomIndex];
     });
 }
+
+
+// Task 5: Display Current Date and Time
+
+function updateDateTime() {
+    const dateTimeElement = document.getElementById("currentDateTime");
+
+    if (dateTimeElement) {
+        const now = new Date();
+
+        dateTimeElement.textContent = now.toLocaleString("en-GB", {
+            day: "2-digit",
+            month: "short",
+            year: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit"
+        });
+    }
+}
+
+updateDateTime();
+setInterval(updateDateTime, 1000);

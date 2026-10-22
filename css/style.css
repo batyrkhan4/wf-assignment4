@@ -81,6 +81,27 @@ p {
     color: #a0a8c0;
 }
 
+
+.site-aside {
+    background-color: #121520;
+    border: 1px solid #252938;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 30px 0;
+    color: #c5c9d6;
+}
+
+.site-aside h3 {
+    color: #ffffff;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.site-aside p {
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
 .hero-banner,
 .rules-section {
     background-color: #141824;

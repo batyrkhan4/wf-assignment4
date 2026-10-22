@@ -26,6 +26,7 @@ if (form) {
     }
 
     function validateForm() {
+        form.setAttribute("novalidate", "");
         let isValid = true;
 
         const fields = [

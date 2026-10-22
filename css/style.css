@@ -1,0 +1,306 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0d0f17;
+    color: #e1e6f0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+.page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: #141824;
+    border-bottom: 2px solid #2a3148;
+}
+
+.navbar-brand {
+    color: #ffffff !important;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.logo-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+.navbar-nav .nav-link {
+    color: #a0a8c0;
+    font-weight: 600;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ffffff;
+}
+
+.navbar-nav .nav-link.active {
+    background-color: #3b82f6;
+    color: #ffffff;
+    border-radius: 4px;
+}
+
+aside {
+    background-color: #141824;
+    border-right: 1px solid #2a3148;
+}
+
+aside h2 {
+    color: #3b82f6;
+    font-size: 1.4rem;
+}
+
+aside p {
+    color: #a0a8c0;
+    font-size: 0.95rem;
+}
+
+main {
+    min-width: 0;
+}
+
+h1, h2, h3 {
+    color: #ffffff;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+p {
+    color: #a0a8c0;
+}
+
+.hero-banner,
+.rules-section {
+    background-color: #141824;
+    border: 1px solid #2a3148;
+    border-radius: 8px;
+}
+
+.subtitle {
+    color: #3b82f6;
+    font-size: 1.2rem;
+}
+
+.match-card {
+    background-color: #141824;
+    border: 1px solid #2a3148;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.match-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2);
+}
+
+.match-card img {
+    height: 180px;
+    background-color: #141824;
+    object-fit: cover;
+}
+
+.match-card img.pixel-icon {
+    object-fit: contain;
+    padding: 15px;
+}
+
+.card-title {
+    color: #ffffff;
+}
+
+.card-text {
+    color: #a0a8c0;
+}
+
+.btn-primary {
+    background-color: #3b82f6;
+    border-color: #3b82f6;
+}
+
+.btn-primary:hover {
+    background-color: #2563ed;
+    border-color: #2563ed;
+}
+
+.gallery-section {
+    margin-bottom: 40px;
+}
+
+.carousel {
+    border: 1px solid #2a3148;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.carousel-img {
+    height: 450px;
+    object-fit: contain;
+    background-color: #141824;
+    image-rendering: pixelated;
+}
+
+.carousel-caption {
+    background-color: rgba(20, 24, 36, 0.85);
+    border-radius: 6px;
+}
+
+.team-member {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: #141824;
+    border: 1px solid #2a3148;
+    border-radius: 8px;
+}
+
+.member-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #3b82f6;
+    flex-shrink: 0;
+}
+
+.form-label {
+    color: #e1e6f0;
+    font-weight: 600;
+}
+
+.form-control,
+.form-select {
+    background-color: #0d0f17;
+    border: 1px solid #2a3148;
+    color: #e1e6f0;
+}
+
+.form-control:focus,
+.form-select:focus {
+    background-color: #0d0f17;
+    color: #e1e6f0;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.25);
+}
+
+.form-control::placeholder {
+    color: #6f7890;
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+.table-dark {
+    --bs-table-bg: #141824;
+    --bs-table-border-color: #2a3148;
+}
+
+.table thead th {
+    color: #3b82f6;
+}
+
+footer {
+    background-color: #080a10;
+    border-top: 1px solid #1e2436;
+    text-align: center;
+}
+
+footer p {
+    color: #a0a8c0;
+}
+
+@media (max-width: 991px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .navbar-nav {
+        margin-top: 15px;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 8px 12px;
+    }
+
+    aside {
+        border-right: none;
+        border-bottom: 1px solid #2a3148;
+    }
+
+    .carousel-img {
+        height: 350px;
+    }
+}
+
+@media (max-width: 767px) {
+    h1 {
+        font-size: 1.7rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    h3 {
+        font-size: 1.1rem;
+    }
+
+    p,
+    li {
+        font-size: 0.9rem;
+    }
+
+    .logo-img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .carousel-img {
+        height: 250px;
+    }
+
+    .team-member {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .member-avatar {
+        width: 85px;
+        height: 85px;
+    }
+}
+
+@media (max-width: 575px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .carousel-img {
+        height: 200px;
+    }
+
+    .carousel-caption {
+        padding: 5px;
+    }
+
+    .carousel-caption h3 {
+        font-size: 0.9rem;
+    }
+}

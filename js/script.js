@@ -173,3 +173,16 @@ if (subscribeForm) {
         subscribeMessage.textContent = "";
     });
 }
+
+//task 4: Change Background Color
+const changeThemeBtn = document.getElementById("changeThemeBtn");
+
+if (changeThemeBtn) {
+    changeThemeBtn.addEventListener("click", function () {
+        const colors = ["#f0f8ff", "#e8f5e9", "#fff3e0", "#f3e5f5"];
+
+        const randomIndex = Math.floor(Math.random() * colors.length);
+
+        document.body.style.backgroundColor = colors[randomIndex];
+    });
+}

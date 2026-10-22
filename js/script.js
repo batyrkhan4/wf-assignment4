@@ -1,4 +1,5 @@
-// 1 task
+// Task 1: Form Validation
+
 const form = document.getElementById("registrationForm");
 
 if (form) {
@@ -10,32 +11,38 @@ if (form) {
     const experience = document.getElementById("experience");
     const formMessage = document.getElementById("formMessage");
 
+    // Show error message
     function showError(input, message) {
         input.classList.add("is-invalid");
         input.classList.remove("is-valid");
 
-        const feedback = input.parentElement
-            .querySelector(".invalid-feedback");
-
-        feedback.textContent = message;
+        input.parentElement.querySelector(
+            ".invalid-feedback"
+        ).textContent = message;
     }
 
+    // Mark field as valid
     function showSuccess(input) {
         input.classList.remove("is-invalid");
         input.classList.add("is-valid");
     }
 
+    // Validate all fields
     function validateForm() {
-        form.setAttribute("novalidate", "");
         let isValid = true;
 
         const fields = [
-            ign, email, password,
-            confirmPassword, discipline, experience
+            ign,
+            email,
+            password,
+            confirmPassword,
+            discipline,
+            experience
         ];
 
-        fields.forEach(input => {
+        fields.forEach(function (input) {
             input.classList.remove("is-invalid", "is-valid");
+
             input.parentElement.querySelector(
                 ".invalid-feedback"
             ).textContent = "";
@@ -45,7 +52,7 @@ if (form) {
         formMessage.className = "mb-3";
 
         // Check required fields
-        fields.forEach(input => {
+        fields.forEach(function (input) {
             if (!input.value.trim()) {
                 showError(input, "This field is required.");
                 isValid = false;
@@ -57,7 +64,10 @@ if (form) {
             const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
             if (!emailPattern.test(email.value.trim())) {
-                showError(email, "Please enter a valid email address.");
+                showError(
+                    email,
+                    "Please enter a valid email address."
+                );
                 isValid = false;
             }
         }
@@ -83,7 +93,7 @@ if (form) {
             isValid = false;
         }
 
-
+        // Mark all fields as valid
         if (isValid) {
             fields.forEach(showSuccess);
         }
@@ -91,6 +101,7 @@ if (form) {
         return isValid;
     }
 
+    // Handle form submission
     form.addEventListener("submit", function (event) {
         event.preventDefault();
 
@@ -105,15 +116,19 @@ if (form) {
         }
     });
 
+    // Reset form and validation messages
     form.addEventListener("reset", function () {
-        setTimeout(() => {
+        setTimeout(function () {
             form.querySelectorAll(".is-valid, .is-invalid")
-                .forEach(input => {
-                    input.classList.remove("is-valid", "is-invalid");
+                .forEach(function (input) {
+                    input.classList.remove(
+                        "is-valid",
+                        "is-invalid"
+                    );
                 });
 
             form.querySelectorAll(".invalid-feedback")
-                .forEach(message => {
+                .forEach(function (message) {
                     message.textContent = "";
                 });
 

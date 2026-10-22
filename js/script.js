@@ -179,7 +179,7 @@ const changeThemeBtn = document.getElementById("changeThemeBtn");
 
 if (changeThemeBtn) {
     changeThemeBtn.addEventListener("click", function () {
-        const colors = ["#f0f8ff", "#e8f5e9", "#fff3e0", "#f3e5f5"];
+        const colors = ["#0d0f17","#10131d", "#121520", "#151824", "#171a26"];
 
         const randomIndex = Math.floor(Math.random() * colors.length);
 

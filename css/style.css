@@ -69,7 +69,9 @@ main {
     min-width: 0;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     color: #ffffff;
 }
 
@@ -83,23 +85,21 @@ p {
 
 
 .site-aside {
-    background-color: #121520;
-    border: 1px solid #252938;
-    border-radius: 8px;
-    padding: 20px;
-    margin: 30px 0;
     color: #c5c9d6;
+    background-color: #10131d;
+    border-right: 1px solid #252938;
+    min-height: 100%;
 }
 
-.site-aside h3 {
+.site-aside h2 {
     color: #ffffff;
-    font-size: 18px;
-    margin-bottom: 10px;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
 }
 
 .site-aside p {
-    font-size: 14px;
-    margin-bottom: 0;
+    font-size: 0.9rem;
+    overflow-wrap: anywhere;
 }
 
 .hero-banner,

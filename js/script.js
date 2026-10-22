@@ -137,3 +137,39 @@ if (form) {
         }, 0);
     });
 }
+
+// task 3: Popup Subscription Form
+const subscribeForm = document.getElementById("subscribeForm");
+
+if (subscribeForm) {
+    const subscribeEmail = document.getElementById("subscribeEmail");
+    const subscribeMessage = document.getElementById("subscribeMessage");
+
+    subscribeForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!emailPattern.test(subscribeEmail.value.trim())) {
+            subscribeEmail.classList.add("is-invalid");
+            subscribeEmail.classList.remove("is-valid");
+            subscribeMessage.textContent = "";
+            return;
+        }
+
+        subscribeEmail.classList.remove("is-invalid");
+        subscribeEmail.classList.add("is-valid");
+
+        subscribeMessage.textContent =
+            "Thank you for subscribing!";
+        subscribeMessage.className = "mt-3 mb-0 text-success";
+
+        subscribeForm.reset();
+        subscribeEmail.classList.remove("is-valid");
+    });
+
+    subscribeEmail.addEventListener("input", function () {
+        subscribeEmail.classList.remove("is-invalid");
+        subscribeMessage.textContent = "";
+    });
+}

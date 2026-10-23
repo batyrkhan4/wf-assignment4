@@ -359,3 +359,95 @@ footer p {
         font-size: 0.9rem;
     }
 }
+
+
+
+/* ===== FAQ Accordion - Dark Theme ===== */
+.accordion-item {
+    background-color: #151824;
+    border: 1px solid #252938;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.accordion-button {
+    background-color: #151824;
+    color: #e6eaf2;
+    font-weight: 600;
+    box-shadow: none;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #172b35;
+    color: #59c7f5;
+    box-shadow: none;
+}
+
+.accordion-button::after {
+    filter: brightness(0) invert(1);
+}
+
+.accordion-button:focus {
+    box-shadow: 0 0 0 2px rgba(89, 199, 245, 0.25);
+}
+
+.accordion-body {
+    background-color: #10131d;
+    color: #c5c9d6;
+    line-height: 1.7;
+}
+
+
+
+.modal-content {
+    background-color: #151824;
+    color: #e6eaf2;
+    border: 1px solid #303548;
+    border-radius: 12px;
+}
+
+.modal-header,
+.modal-footer {
+    border-color: #303548;
+}
+
+.modal-title {
+    color: #59c7f5;
+    font-weight: 600;
+}
+
+.modal-body {
+    color: #c5c9d6;
+}
+
+.modal-content .form-control,
+.modal-content .form-select {
+    background-color: #0d0f17;
+    color: #e6eaf2;
+    border: 1px solid #303548;
+}
+
+.modal-content .form-control::placeholder {
+    color: #858da0;
+}
+
+.modal-content .form-control:focus,
+.modal-content .form-select:focus {
+    border-color: #59c7f5;
+    box-shadow: 0 0 0 0.2rem rgba(89, 199, 245, 0.15);
+}
+
+.modal-content .btn-close {
+    filter: invert(1);
+}
+
+.modal-content .btn-primary {
+    background-color: #1686b0;
+    border-color: #1686b0;
+}
+
+.modal-content .btn-primary:hover {
+    background-color: #116b8e;
+    border-color: #116b8e;
+}

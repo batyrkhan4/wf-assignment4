@@ -175,15 +175,30 @@ if (subscribeForm) {
 }
 
 //task 4: Change Background Color
+// Gradient background themes
 const changeThemeBtn = document.getElementById("changeThemeBtn");
+
+const gradients = [
+    "linear-gradient(135deg, #ff758c, #ff7eb3)", // Pink
+    "linear-gradient(135deg, #a18cd1, #fbc2eb)", // Purple and pink
+    "linear-gradient(135deg, #2193b0, #6dd5ed)", // Blue
+    "linear-gradient(135deg, #11998e, #38ef7d)", // Turquoise and green
+    "linear-gradient(135deg, #f7971e, #ffd200)", // Orange and yellow
+    "linear-gradient(135deg, #654ea3, #eaafc8)", // Purple and pink
+    "linear-gradient(135deg, #0d0f17, #252b45)"  // Dark blue
+];
+
+let currentGradient = -1;
 
 if (changeThemeBtn) {
     changeThemeBtn.addEventListener("click", function () {
-        const colors = ["#0d0f17", "#10131d", "#121520", "#151824", "#171a26"];
+        currentGradient = (currentGradient + 1) % gradients.length;
 
-        const randomIndex = Math.floor(Math.random() * colors.length);
+        document.body.style.backgroundImage =
+            gradients[currentGradient];
 
-        document.body.style.backgroundColor = colors[randomIndex];
+        document.body.style.backgroundAttachment = "fixed";
+        document.body.style.backgroundSize = "cover";
     });
 }
 

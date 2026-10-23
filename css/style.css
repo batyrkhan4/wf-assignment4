@@ -9,6 +9,11 @@ body {
     color: #e1e6f0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
+    background-color: #0d0f17;
+    background-image: linear-gradient(135deg, #0d0f17, #171a26);
+    background-attachment: fixed;
+    background-size: cover;
+    transition: background-color 0.5s ease;
 }
 
 .page {

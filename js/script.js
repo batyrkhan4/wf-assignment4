@@ -11,7 +11,7 @@ if (form) {
     const experience = document.getElementById("experience");
     const formMessage = document.getElementById("formMessage");
 
-    // Show error message
+
     function showError(input, message) {
         input.classList.add("is-invalid");
         input.classList.remove("is-valid");
@@ -21,13 +21,13 @@ if (form) {
         ).textContent = message;
     }
 
-    // Mark field as valid
+
     function showSuccess(input) {
         input.classList.remove("is-invalid");
         input.classList.add("is-valid");
     }
 
-    // Validate all fields
+
     function validateForm() {
         let isValid = true;
 
@@ -51,7 +51,7 @@ if (form) {
         formMessage.textContent = "";
         formMessage.className = "mb-3";
 
-        // Check required fields
+
         fields.forEach(function (input) {
             if (!input.value.trim()) {
                 showError(input, "This field is required.");
@@ -59,7 +59,7 @@ if (form) {
             }
         });
 
-        // Check email format
+
         if (email.value.trim()) {
             const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -72,7 +72,7 @@ if (form) {
             }
         }
 
-        // Check password length
+
         if (password.value && password.value.length < 8) {
             showError(
                 password,
@@ -81,7 +81,7 @@ if (form) {
             isValid = false;
         }
 
-        // Check password confirmation
+
         if (
             confirmPassword.value &&
             password.value !== confirmPassword.value
@@ -93,7 +93,7 @@ if (form) {
             isValid = false;
         }
 
-        // Mark all fields as valid
+
         if (isValid) {
             fields.forEach(showSuccess);
         }
@@ -101,7 +101,7 @@ if (form) {
         return isValid;
     }
 
-    // Handle form submission
+
     form.addEventListener("submit", function (event) {
         event.preventDefault();
 
@@ -116,7 +116,7 @@ if (form) {
         }
     });
 
-    // Reset form and validation messages
+
     form.addEventListener("reset", function () {
         setTimeout(function () {
             form.querySelectorAll(".is-valid, .is-invalid")
@@ -175,17 +175,17 @@ if (subscribeForm) {
 }
 
 //task 4: Change Background Color
-// Gradient background themes
+
 const changeThemeBtn = document.getElementById("changeThemeBtn");
 
 const gradients = [
-    "linear-gradient(135deg, #ff758c, #ff7eb3)", // Pink
-    "linear-gradient(135deg, #a18cd1, #fbc2eb)", // Purple and pink
-    "linear-gradient(135deg, #2193b0, #6dd5ed)", // Blue
-    "linear-gradient(135deg, #11998e, #38ef7d)", // Turquoise and green
-    "linear-gradient(135deg, #f7971e, #ffd200)", // Orange and yellow
-    "linear-gradient(135deg, #654ea3, #eaafc8)", // Purple and pink
-    "linear-gradient(135deg, #0d0f17, #252b45)"  // Dark blue
+    "linear-gradient(135deg, #ff758c, #ff7eb3)", 
+    "linear-gradient(135deg, #a18cd1, #fbc2eb)", 
+    "linear-gradient(135deg, #2193b0, #6dd5ed)",
+    "linear-gradient(135deg, #11998e, #38ef7d)", 
+    "linear-gradient(135deg, #f7971e, #ffd200)",
+    "linear-gradient(135deg, #654ea3, #eaafc8)",
+    "linear-gradient(135deg, #0d0f17, #252b45)"
 ];
 
 let currentGradient = -1;

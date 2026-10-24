@@ -1,5 +1,7 @@
 // Task 1: Form Validation
 
+// Task 1: Form Validation using JavaScript
+
 const form = document.getElementById("registrationForm");
 
 if (form) {
@@ -11,7 +13,16 @@ if (form) {
     const experience = document.getElementById("experience");
     const formMessage = document.getElementById("formMessage");
 
+    const fields = [
+        ign,
+        email,
+        password,
+        confirmPassword,
+        discipline,
+        experience
+    ];
 
+    
     function showError(input, message) {
         input.classList.add("is-invalid");
         input.classList.remove("is-valid");
@@ -21,25 +32,18 @@ if (form) {
         ).textContent = message;
     }
 
-
+    
     function showSuccess(input) {
         input.classList.remove("is-invalid");
         input.classList.add("is-valid");
+
+        input.parentElement.querySelector(
+            ".invalid-feedback"
+        ).textContent = "";
     }
 
-
-    function validateForm() {
-        let isValid = true;
-
-        const fields = [
-            ign,
-            email,
-            password,
-            confirmPassword,
-            discipline,
-            experience
-        ];
-
+    
+    function clearValidation() {
         fields.forEach(function (input) {
             input.classList.remove("is-invalid", "is-valid");
 
@@ -50,8 +54,15 @@ if (form) {
 
         formMessage.textContent = "";
         formMessage.className = "mb-3";
+    }
 
+    
+    function validateForm() {
+        clearValidation();
 
+        let isValid = true;
+
+        
         fields.forEach(function (input) {
             if (!input.value.trim()) {
                 showError(input, "This field is required.");
@@ -59,7 +70,7 @@ if (form) {
             }
         });
 
-
+        
         if (email.value.trim()) {
             const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -72,7 +83,7 @@ if (form) {
             }
         }
 
-
+        
         if (password.value && password.value.length < 8) {
             showError(
                 password,
@@ -81,7 +92,7 @@ if (form) {
             isValid = false;
         }
 
-
+        
         if (
             confirmPassword.value &&
             password.value !== confirmPassword.value
@@ -93,47 +104,37 @@ if (form) {
             isValid = false;
         }
 
-
+        
         if (isValid) {
-            fields.forEach(showSuccess);
+            fields.forEach(function (input) {
+                showSuccess(input);
+            });
         }
 
         return isValid;
     }
 
-
+    
     form.addEventListener("submit", function (event) {
         event.preventDefault();
 
         if (validateForm()) {
             formMessage.textContent =
                 "Validation successful! Your form is ready.";
+
             formMessage.classList.add("text-success");
         } else {
             formMessage.textContent =
                 "Please correct the errors above.";
+
             formMessage.classList.add("text-danger");
         }
     });
 
-
+    
     form.addEventListener("reset", function () {
         setTimeout(function () {
-            form.querySelectorAll(".is-valid, .is-invalid")
-                .forEach(function (input) {
-                    input.classList.remove(
-                        "is-valid",
-                        "is-invalid"
-                    );
-                });
-
-            form.querySelectorAll(".invalid-feedback")
-                .forEach(function (message) {
-                    message.textContent = "";
-                });
-
-            formMessage.textContent = "";
-            formMessage.className = "mb-3";
+            clearValidation();
         }, 0);
     });
 }

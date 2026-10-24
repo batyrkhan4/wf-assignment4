@@ -271,9 +271,9 @@ let currentGradient = -1;
 if (changeThemeBtn) {
     changeThemeBtn.addEventListener("click", function () {
         currentGradient = (currentGradient + 1) % gradients.length;
-
-        document.body.style.backgroundImage =
-            gradients[currentGradient];
+        
+        document.body.style.backgroundColor = "transparent";
+        document.body.style.backgroundImage = gradients[currentGradient];
 
         document.body.style.backgroundAttachment = "fixed";
         document.body.style.backgroundSize = "cover";

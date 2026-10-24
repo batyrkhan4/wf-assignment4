@@ -108,10 +108,7 @@
 
                     <div class="faq-answer" id="faq-answer-2" aria-hidden="true">
                         <div class="faq-answer-inner">
-                            <p>
-                                The website includes disciplines such as Sword,
-                                Axe PvP, Crystal PvP, and Pot PvP.
-                            </p>
+                            <p>The website includes disciplines such as Sword,Axe PvP, Crystal PvP, and Pot PvP.</p>
                         </div>
                     </div>
                 </div>
@@ -124,10 +121,7 @@
 
                     <div class="faq-answer" id="faq-answer-3" aria-hidden="true">
                         <div class="faq-answer-inner">
-                            <p>
-                                Visit the Registration page and fill in the form
-                                to provide your information.
-                            </p>
+                            <p>Visit the Registration page and fill in the form to provide your information.</p>
                         </div>
                     </div>
                 </div>
@@ -141,49 +135,24 @@
     </div>
 
 
-    <div class="container text-center my-4">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#subscribeModal">
-            Subscribe
-        </button>
+    <div class="subscribe-section">
+        <button type="button" id="openSubscribe" class="subscribe-btn">Subscribe</button>
     </div>
 
-    <div class="modal fade" id="subscribeModal" tabindex="-1" aria-labelledby="subscribeModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
+    <div class="subscribe-overlay" id="subscribeOverlay" aria-hidden="true">
+        <div class="subscribe-popup" role="dialog" aria-modal="true" aria-labelledby="subscribeTitle">
+            <button type="button" id="closeSubscribe" class="subscribe-close" aria-label="Close">&times;</button>
 
-                <div class="modal-header">
-                    <h5 class="modal-title" id="subscribeModalLabel">
-                        Subscribe to MCTiers League
-                    </h5>
+            <h2 id="subscribeTitle">Subscribe to MCTiers League</h2>
+            <p>Get updates about Minecraft PvP and tournaments.</p>
 
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body">
-                    <form id="subscribeForm" novalidate>
-
-                        <div class="mb-3">
-                            <label for="subscribeEmail" class="form-label">
-                                Email address
-                            </label>
-
-                            <input type="email" class="form-control" id="subscribeEmail" required>
-
-                            <div class="invalid-feedback">
-                                Please enter a valid email address.
-                            </div>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary">
-                            Subscribe
-                        </button>
-
-                        <p id="subscribeMessage" class="mt-3 mb-0" role="status" aria-live="polite"></p>
-
-                    </form>
-                </div>
-
-            </div>
+            <form id="subscribeForm" novalidate>
+                <label for="subscribeEmail">Email address</label>
+                <input type="text" inputmode="email" id="subscribeEmail" autocomplete="email">
+                <p id="subscribeError" class="subscribe-error"></p>
+                <p id="subscribeMessage" class="subscribe-success" role="status" aria-live="polite"></p>
+                <button type="submit" class="subscribe-btn">Subscribe</button>
+            </form>
         </div>
     </div>
 

@@ -178,40 +178,72 @@ faqQuestions.forEach(function (question) {
 });
 
 // task 3: Popup Subscription Form
-const subscribeForm = document.getElementById("subscribeForm");
 
-if (subscribeForm) {
+const subscribeOverlay = document.getElementById("subscribeOverlay");
+
+if (subscribeOverlay) {
+    const openSubscribe = document.getElementById("openSubscribe");
+    const closeSubscribe = document.getElementById("closeSubscribe");
+    const subscribeForm = document.getElementById("subscribeForm");
     const subscribeEmail = document.getElementById("subscribeEmail");
+    const subscribeError = document.getElementById("subscribeError");
     const subscribeMessage = document.getElementById("subscribeMessage");
+
+    function openPopup() {
+        subscribeOverlay.classList.add("active");
+        subscribeOverlay.setAttribute("aria-hidden", "false");
+        subscribeEmail.focus();
+    }
+
+    function closePopup() {
+        subscribeOverlay.classList.remove("active");
+        subscribeOverlay.setAttribute("aria-hidden", "true");
+        openSubscribe.focus();
+    }
+
+    openSubscribe.addEventListener("click", openPopup);
+    closeSubscribe.addEventListener("click", closePopup);
+
+    subscribeOverlay.addEventListener("click", function (event) {
+        if (event.target === subscribeOverlay) {
+            closePopup();
+        }
+    });
+
+    document.addEventListener("keydown", function (event) {
+        if (
+            event.key === "Escape" &&
+            subscribeOverlay.classList.contains("active")
+        ) {
+            closePopup();
+        }
+    });
 
     subscribeForm.addEventListener("submit", function (event) {
         event.preventDefault();
 
+        const email = subscribeEmail.value.trim();
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        if (!emailPattern.test(subscribeEmail.value.trim())) {
-            subscribeEmail.classList.add("is-invalid");
-            subscribeEmail.classList.remove("is-valid");
-            subscribeMessage.textContent = "";
+        subscribeError.textContent = "";
+        subscribeMessage.textContent = "";
+
+        if (!emailPattern.test(email)) {
+            subscribeError.textContent = "Please enter a valid email address.";
+            subscribeEmail.focus();
             return;
         }
 
-        subscribeEmail.classList.remove("is-invalid");
-        subscribeEmail.classList.add("is-valid");
-
-        subscribeMessage.textContent =
-            "Thank you for subscribing!";
-        subscribeMessage.className = "mt-3 mb-0 text-success";
-
+        subscribeMessage.textContent = "Thank you for subscribing!";
         subscribeForm.reset();
-        subscribeEmail.classList.remove("is-valid");
     });
 
     subscribeEmail.addEventListener("input", function () {
-        subscribeEmail.classList.remove("is-invalid");
+        subscribeError.textContent = "";
         subscribeMessage.textContent = "";
     });
 }
+
 
 //task 4: Change Background Color
 

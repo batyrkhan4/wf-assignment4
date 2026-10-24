@@ -471,56 +471,121 @@ footer p {
     }
 }
 
-
-
-.modal-content {
-    background-color: #151824;
-    color: #e6eaf2;
-    border: 1px solid #303548;
-    border-radius: 12px;
+.subscribe-section {
+    text-align: center;
+    margin: 30px 0;
 }
 
-.modal-header,
-.modal-footer {
-    border-color: #303548;
-}
-
-.modal-title {
-    color: #59c7f5;
+.subscribe-btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    background: #3b82f6;
+    color: #fff;
+    font-size: 1rem;
     font-weight: 600;
+    cursor: pointer;
+    transition: background 0.25s ease;
 }
 
-.modal-body {
-    color: #c5c9d6;
+.subscribe-btn:hover {
+    background: #2563eb;
 }
 
-.modal-content .form-control,
-.modal-content .form-select {
-    background-color: #0d0f17;
-    color: #e6eaf2;
+.subscribe-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.75);
+    align-items: center;
+    justify-content: center;
+}
+
+.subscribe-overlay.active {
+    display: flex;
+}
+
+.subscribe-popup {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+    padding: 30px;
     border: 1px solid #303548;
+    border-radius: 14px;
+    background: #141824;
+    color: #e6eaf2;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+    animation: popupAppear 0.25s ease;
 }
 
-.modal-content .form-control::placeholder {
-    color: #858da0;
+.subscribe-popup h2 {
+    margin: 0 25px 12px 0;
+    color: #59c7f5;
+    font-size: 1.5rem;
 }
 
-.modal-content .form-control:focus,
-.modal-content .form-select:focus {
+.subscribe-popup > p {
+    color: #c5c9d6;
+    line-height: 1.6;
+}
+
+.subscribe-close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    border: none;
+    background: transparent;
+    color: #e6eaf2;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.subscribe-popup label {
+    display: block;
+    margin: 20px 0 8px;
+    color: #e6eaf2;
+}
+
+.subscribe-popup input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #3b4258;
+    border-radius: 7px;
+    outline: none;
+    background: #0d0f17;
+    color: #fff;
+}
+
+.subscribe-popup input:focus {
     border-color: #59c7f5;
-    box-shadow: 0 0 0 0.2rem rgba(89, 199, 245, 0.15);
 }
 
-.modal-content .btn-close {
-    filter: invert(1);
+.subscribe-error {
+    margin: 6px 0;
+    color: #ff7373;
+    font-size: 0.9rem;
 }
 
-.modal-content .btn-primary {
-    background-color: #1686b0;
-    border-color: #1686b0;
+.subscribe-success {
+    color: #65d99a;
+    font-size: 0.95rem;
 }
 
-.modal-content .btn-primary:hover {
-    background-color: #116b8e;
-    border-color: #116b8e;
+@keyframes popupAppear {
+    from {
+        opacity: 0;
+        transform: translateY(-12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 480px) {
+    .subscribe-popup {
+        padding: 24px 20px;
+    }
 }

@@ -22,7 +22,7 @@ if (form) {
         experience
     ];
 
-    
+
     function showError(input, message) {
         input.classList.add("is-invalid");
         input.classList.remove("is-valid");
@@ -32,7 +32,7 @@ if (form) {
         ).textContent = message;
     }
 
-    
+
     function showSuccess(input) {
         input.classList.remove("is-invalid");
         input.classList.add("is-valid");
@@ -42,7 +42,7 @@ if (form) {
         ).textContent = "";
     }
 
-    
+
     function clearValidation() {
         fields.forEach(function (input) {
             input.classList.remove("is-invalid", "is-valid");
@@ -56,13 +56,13 @@ if (form) {
         formMessage.className = "mb-3";
     }
 
-    
+
     function validateForm() {
         clearValidation();
 
         let isValid = true;
 
-        
+
         fields.forEach(function (input) {
             if (!input.value.trim()) {
                 showError(input, "This field is required.");
@@ -70,7 +70,7 @@ if (form) {
             }
         });
 
-        
+
         if (email.value.trim()) {
             const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -83,7 +83,7 @@ if (form) {
             }
         }
 
-        
+
         if (password.value && password.value.length < 8) {
             showError(
                 password,
@@ -92,6 +92,13 @@ if (form) {
             isValid = false;
         }
 
+        if (password.includes(" ")) {
+            showError(
+                passwordInput,
+                "Password must not contain spaces."
+            );
+            isValid = false;
+        }
         
         if (
             confirmPassword.value &&
@@ -104,7 +111,7 @@ if (form) {
             isValid = false;
         }
 
-        
+
         if (isValid) {
             fields.forEach(function (input) {
                 showSuccess(input);
@@ -114,7 +121,7 @@ if (form) {
         return isValid;
     }
 
-    
+
     form.addEventListener("submit", function (event) {
         event.preventDefault();
 
@@ -131,7 +138,7 @@ if (form) {
         }
     });
 
-    
+
     form.addEventListener("reset", function () {
         setTimeout(function () {
             clearValidation();
@@ -152,7 +159,7 @@ faqQuestions.forEach(function (question) {
 
         const isOpen = question.getAttribute("aria-expanded") === "true";
 
-   
+
         faqQuestions.forEach(function (otherQuestion) {
             const otherAnswer = document.getElementById(
                 otherQuestion.getAttribute("aria-controls")
@@ -250,10 +257,10 @@ if (subscribeOverlay) {
 const changeThemeBtn = document.getElementById("changeThemeBtn");
 
 const gradients = [
-    "linear-gradient(135deg, #ff758c, #ff7eb3)", 
-    "linear-gradient(135deg, #a18cd1, #fbc2eb)", 
+    "linear-gradient(135deg, #ff758c, #ff7eb3)",
+    "linear-gradient(135deg, #a18cd1, #fbc2eb)",
     "linear-gradient(135deg, #2193b0, #6dd5ed)",
-    "linear-gradient(135deg, #11998e, #38ef7d)", 
+    "linear-gradient(135deg, #11998e, #38ef7d)",
     "linear-gradient(135deg, #f7971e, #ffd200)",
     "linear-gradient(135deg, #654ea3, #eaafc8)",
     "linear-gradient(135deg, #0d0f17, #252b45)"

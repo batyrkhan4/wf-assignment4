@@ -92,14 +92,14 @@ if (form) {
             isValid = false;
         }
 
-        if (password.includes(" ")) {
+        if (password.value.includes(" ")) {
             showError(
-                passwordInput,
+                password,
                 "Password must not contain spaces."
             );
             isValid = false;
         }
-        
+
         if (
             confirmPassword.value &&
             password.value !== confirmPassword.value

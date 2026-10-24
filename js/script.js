@@ -139,6 +139,44 @@ if (form) {
     });
 }
 
+// task 2: FAQ Accordion
+
+const faqQuestions = document.querySelectorAll(".faq-question");
+
+faqQuestions.forEach(function (question) {
+    question.addEventListener("click", function () {
+        const answerId = question.getAttribute("aria-controls");
+        const answer = document.getElementById(answerId);
+
+        if (!answer) return;
+
+        const isOpen = question.getAttribute("aria-expanded") === "true";
+
+   
+        faqQuestions.forEach(function (otherQuestion) {
+            const otherAnswer = document.getElementById(
+                otherQuestion.getAttribute("aria-controls")
+            );
+
+            otherQuestion.classList.remove("active");
+            otherQuestion.setAttribute("aria-expanded", "false");
+
+            if (otherAnswer) {
+                otherAnswer.classList.remove("open");
+                otherAnswer.setAttribute("aria-hidden", "true");
+            }
+        });
+
+        if (!isOpen) {
+            question.classList.add("active");
+            question.setAttribute("aria-expanded", "true");
+
+            answer.classList.add("open");
+            answer.setAttribute("aria-hidden", "false");
+        }
+    });
+});
+
 // task 3: Popup Subscription Form
 const subscribeForm = document.getElementById("subscribeForm");
 

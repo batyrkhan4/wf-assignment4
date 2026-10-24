@@ -366,41 +366,109 @@ footer p {
 }
 
 
+/* Task 2: Custom FAQ Accordion */
 
-/* ===== FAQ Accordion - Dark Theme ===== */
-.accordion-item {
-    background-color: #151824;
-    border: 1px solid #252938;
-    margin-bottom: 10px;
-    border-radius: 8px;
+.faq-section {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.faq-title {
+    text-align: center;
+    color: #59c7f5;
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.faq-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.faq-item {
+    background: #151824;
+    border: 1px solid #303548;
+    border-radius: 10px;
     overflow: hidden;
 }
 
-.accordion-button {
-    background-color: #151824;
+.faq-question {
+    width: 100%;
+    padding: 20px;
+    background: #151824;
     color: #e6eaf2;
+    border: none;
+    text-align: left;
+    font-size: 1rem;
     font-weight: 600;
-    box-shadow: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    transition: background 0.25s ease, color 0.25s ease;
 }
 
-.accordion-button:not(.collapsed) {
-    background-color: #172b35;
+.faq-question:hover,
+.faq-question.active {
+    background: #172b35;
     color: #59c7f5;
-    box-shadow: none;
 }
 
-.accordion-button::after {
-    filter: brightness(0) invert(1);
+.faq-icon {
+    font-size: 1.5rem;
+    color: #59c7f5;
+    transition: transform 0.3s ease;
 }
 
-.accordion-button:focus {
-    box-shadow: 0 0 0 2px rgba(89, 199, 245, 0.25);
+.faq-question.active .faq-icon {
+    transform: rotate(45deg);
 }
 
-.accordion-body {
-    background-color: #10131d;
+.faq-answer {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s ease;
+}
+
+.faq-answer.open {
+    grid-template-rows: 1fr;
+}
+
+.faq-answer-inner {
+    overflow: hidden;
+}
+
+.faq-answer-inner p {
     color: #c5c9d6;
     line-height: 1.7;
+    padding: 0 20px;
+    margin: 0;
+    opacity: 0;
+    transition: opacity 0.25s ease, padding 0.3s ease;
+}
+
+.faq-answer.open .faq-answer-inner p {
+    padding: 18px 20px;
+    opacity: 1;
+}
+
+@media (max-width: 576px) {
+    .faq-section {
+        padding: 0 15px;
+        margin: 35px auto;
+    }
+
+    .faq-title {
+        font-size: 1.5rem;
+    }
+
+    .faq-question {
+        padding: 16px;
+        font-size: 0.95rem;
+    }
 }
 
 
